@@ -21,9 +21,9 @@ public class FabricProxyLite implements DedicatedServerModInitializer, IMixinCon
     public void onInitializeServer() {
         // Packet receiver
         ServerLoginNetworking.registerGlobalReceiver(PLAYER_INFO_CHANNEL, new PacketHandler(config)::handleVelocityPacket);
-        if (!config.getHackEarlySend()) {
+        //if (!config.getHackEarlySend()) {
             ServerLoginConnectionEvents.QUERY_START.register((handler, server, sender, synchronizer) -> sender.sendPacket(PLAYER_INFO_CHANNEL, PLAYER_INFO_PACKET));
-        }
+        //}
     }
 
     // Only load hack mixin if enabled
